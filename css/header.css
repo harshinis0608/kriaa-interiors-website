@@ -1,0 +1,243 @@
+/* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* ================= HEADER ================= */
+.header {
+  width: 100%;
+  position: fixed;   /* 🔥 change this */
+  top: 0;
+  left: 0;
+
+  padding: 15px 60px;
+
+  background: rgb(14, 14, 14); /* transparent initially */
+  backdrop-filter: blur(10px);
+
+  z-index: 1000;
+  transition: 0.3s;
+}
+
+/* ================= CONTAINER ================= */
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* keep this */
+  padding: 0; /* 🔑 remove side padding if any */
+}
+
+/* ================= LOGO ================= */
+.logo img {
+  height: 55px;
+  object-fit: contain;
+}
+
+/* ================= NAV ================= */
+.nav ul {
+  display: flex;
+  list-style: none;
+  gap: 50px;
+  align-items: center;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 13px;
+  letter-spacing: 2px;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: 0.3s;
+}
+
+/* HOVER EFFECT */
+.nav a:hover {
+  color: #c6a47e; /* gold */
+}
+
+/* ================= CTA BUTTON ================= */
+.cta-btn {
+  background-color: #c6a47e;
+  color: #0e0e0e;
+  padding: 10px 22px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 1px;
+  transition: 0.3s;
+}
+
+.cta-btn:hover {
+  background-color: #a88a66;
+}
+
+/* ================= DROPDOWN ================= */
+.dropdown {
+  position: relative;
+}
+
+/* DROPDOWN MENU */
+.dropdown-menu {
+  position: absolute;
+  top: 120%;
+  left: 0;
+  background: #161616; /* card background */
+  list-style: none;
+  padding: 10px 0;
+  min-width: 180px;
+  border-radius: 6px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: 0.3s;
+}
+
+/* SHOW DROPDOWN */
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* DROPDOWN ITEMS */
+.dropdown-menu li {
+  padding: 10px 20px;
+}
+
+.dropdown-menu li a {
+  color: #cfcfcf;
+  text-decoration: none;
+  font-size: 13px;
+  display: block;
+  transition: 0.3s;
+}
+
+.dropdown-menu li a:hover {
+  color: #ffffff;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .logo img {
+    height: 45px;
+  }
+}
+
+/* ACTIVE LINK */
+.nav a.active {
+  color: #c6a47e; /* gold highlight */
+  position: relative;
+}
+
+/* OPTIONAL: underline effect */
+.nav a.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 100%;
+  height: 1px;
+  background: #c6a47e;
+}
+
+/* MOBILE MENU */
+@media (max-width: 900px) {
+
+  .hamburger {
+    display: block;
+  }
+
+  .nav {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background: #0e0e0e;
+
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.4s ease;
+  }
+
+  .nav.active {
+    max-height: 400px; /* expand */
+  }
+
+  .nav ul {
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .cta {
+    display: none; /* hide button in mobile */
+  }
+}
+
+/* LEFT HEADER (logo + hamburger) */
+.left-header {
+  display: flex;
+  gap: 10px;
+  margin-left: 0;        /* ensure no offset */
+}
+
+/* HAMBURGER */
+.hamburger {
+  display: none;
+  font-size: 25px;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+
+  .hamburger {
+    display: block;
+  }
+
+  .nav {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background: #0e0e0e;
+
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.4s ease;
+  }
+
+  .nav.active {
+    max-height: 400px;
+  }
+
+  .nav ul {
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .cta {
+    display: none;
+  }
+}
